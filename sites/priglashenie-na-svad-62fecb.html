@@ -1,0 +1,223 @@
+Вот красивый и элегантный HTML-файл с приглашением на свадьбу от Ильи и Даши, использующий Tailwind CSS и немного кастомного CSS для анимаций:
+
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу | Илья и Даша</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #faf6f2;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .heart-beat {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 2s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .floral-divider {
+            position: relative;
+            height: 30px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0,5 Q25,10 50,5 T100,5" fill="none" stroke="%23d4a373" stroke-width="0.5"/></svg>');
+            background-repeat: repeat-x;
+            background-size: 100px 10px;
+            margin: 40px 0;
+        }
+        
+        .envelope {
+            transition: all 0.3s ease;
+        }
+        
+        .envelope:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 py-12">
+        <!-- Конверт приглашение -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-16 envelope">
+            <div class="bg-rose-100 py-6 px-8 border-b border-rose-200">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <p class="text-rose-800 text-sm">Приглашение</p>
+                        <p class="text-rose-600 text-xs">Илья & Даша</p>
+                    </div>
+                    <div class="text-rose-600">
+                        <i class="fas fa-heart heart-beat"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Основное содержимое приглашения -->
+            <div class="p-8 md:p-12">
+                <div class="text-center mb-10 fade-in">
+                    <h1 class="playfair text-4xl md:text-5xl font-bold text-amber-900 mb-4">Дорогие друзья и родные!</h1>
+                    <div class="floral-divider"></div>
+                    <p class="text-lg text-gray-700 mb-6">С огромной радостью приглашаем вас разделить с нами самый важный день в нашей жизни - день нашей свадьбы!</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row justify-around items-center mb-12">
+                    <div class="text-center mb-8 md:mb-0">
+                        <div class="bg-amber-50 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-4 shadow-inner">
+                            <i class="fas fa-ring text-amber-600 text-4xl"></i>
+                        </div>
+                        <h3 class="playfair text-xl font-bold text-amber-900 mb-2">Церемония</h3>
+                        <p class="text-gray-600">15 июля 2023 года</p>
+                        <p class="text-gray-600">16:00</p>
+                        <p class="text-gray-600">Ресторан "Белая Лилия"</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="bg-rose-50 rounded-full w-32 h-32 flex items-center justify-center mx-auto mb-4 shadow-inner">
+                            <i class="fas fa-glass-cheers text-rose-600 text-4xl"></i>
+                        </div>
+                        <h3 class="playfair text-xl font-bold text-rose-900 mb-2">Банкет</h3>
+                        <p class="text-gray-600">15 июля 2023 года</p>
+                        <p class="text-gray-600">18:00</p>
+                        <p class="text-gray-600">Ресторан "Белая Лилия"</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mb-10">
+                    <div class="inline-block bg-amber-100 px-6 py-3 rounded-full mb-6">
+                        <p class="text-amber-800 font-medium">Дресс-код: элегантный вечерний</p>
+                    </div>
+                    <p class="text-gray-600 mb-4">Ваше присутствие сделает наш день по-настоящему особенным!</p>
+                    <p class="text-gray-600">Пожалуйста, подтвердите ваше участие до 1 июля</p>
+                </div>
+                
+                <div class="flex justify-center space-x-6">
+                    <a href="tel:+79001234567" class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-full transition flex items-center">
+                        <i class="fas fa-phone mr-2"></i> Позвонить
+                    </a>
+                    <a href="mailto:ilya.dasha.wedding@example.com" class="bg-rose-600 hover:bg-rose-700 text-white px-6 py-2 rounded-full transition flex items-center">
+                        <i class="fas fa-envelope mr-2"></i> Написать
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Карта -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-16">
+            <div class="p-6 bg-amber-100 border-b border-amber-200">
+                <h2 class="playfair text-2xl font-bold text-amber-900 text-center">Как нас найти</h2>
+            </div>
+            <div class="p-6">
+                <div class="h-64 bg-gray-200 rounded-lg flex items-center justify-center mb-6">
+                    <p class="text-gray-500">Здесь будет карта с местом проведения</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-700 mb-2">Ресторан "Белая Лилия"</p>
+                    <p class="text-gray-600">г. Москва, ул. Цветочная, 15</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Таймер -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <div class="p-6 bg-rose-100 border-b border-rose-200">
+                <h2 class="playfair text-2xl font-bold text-rose-900 text-center">До нашего дня осталось</h2>
+            </div>
+            <div class="p-8">
+                <div class="flex justify-center space-x-4 md:space-x-8 text-center" id="countdown">
+                    <div class="bg-amber-50 rounded-lg p-4 w-20">
+                        <div class="text-3xl font-bold text-amber-800" id="days">00</div>
+                        <div class="text-sm text-amber-600">дней</div>
+                    </div>
+                    <div class="bg-rose-50 rounded-lg p-4 w-20">
+                        <div class="text-3xl font-bold text-rose-800" id="hours">00</div>
+                        <div class="text-sm text-rose-600">часов</div>
+                    </div>
+                    <div class="bg-amber-50 rounded-lg p-4 w-20">
+                        <div class="text-3xl font-bold text-amber-800" id="minutes">00</div>
+                        <div class="text-sm text-amber-600">минут</div>
+                    </div>
+                    <div class="bg-rose-50 rounded-lg p-4 w-20">
+                        <div class="text-3xl font-bold text-rose-800" id="seconds">00</div>
+                        <div class="text-sm text-rose-600">секунд</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-amber-900 text-amber-100 py-8">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="playfair text-xl mb-4">Илья & Даша</p>
+            <p class="text-sm">15 июля 2023 года</p>
+            <div class="flex justify-center space-x-4 mt-6">
+                <a href="#" class="text-amber-200 hover:text-white transition"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" class="text-amber-200 hover:text-white transition"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="#" class="text-amber-200 hover:text-white transition"><i class="fab fa-telegram fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Таймер обратного отсчета
+        function updateCountdown() {
+            const weddingDate = new Date('July 15, 2023 16:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+            
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('countdown').innerHTML = '<div class="text-2xl text-rose-600 font-bold">Свадьба состоялась! Спасибо, что были с нами!</div>';
+            }
+        }
+        
+        updateCountdown();
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        
+        // Анимация при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                }, index * 300);
+            });
+        });
+    </script>
+</body>
+</html>

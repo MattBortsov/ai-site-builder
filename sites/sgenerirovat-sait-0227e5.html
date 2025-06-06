@@ -1,0 +1,291 @@
+Вот уникальный и современный сайт с использованием HTML, CSS и JavaScript (TailwindCSS). Этот сайт представляет собой креативное портфолио с анимированными элементами:
+
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebula | Креативное цифровое агентство</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-bg {
+            background: radial-gradient(circle at 30% 50%, rgba(99, 102, 241, 0.15) 0%, rgba(15, 23, 42, 0) 50%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.2), 0 10px 10px -5px rgba(99, 102, 241, 0.1);
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .blob {
+            filter: blur(60px);
+            opacity: 0.3;
+            position: absolute;
+            z-index: -1;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #8b5cf6;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #8b5cf6 }
+        }
+    </style>
+</head>
+<body>
+    <!-- Blob background elements -->
+    <div class="blob w-64 h-64 bg-purple-500 rounded-full top-20 left-10"></div>
+    <div class="blob w-96 h-96 bg-indigo-500 rounded-full bottom-40 right-10"></div>
+    
+    <!-- Navigation -->
+    <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
+        <div class="text-2xl font-bold gradient-text">Nebula</div>
+        <div class="hidden md:flex space-x-10">
+            <a href="#" class="nav-link">Главная</a>
+            <a href="#" class="nav-link">Услуги</a>
+            <a href="#" class="nav-link">Портфолио</a>
+            <a href="#" class="nav-link">О нас</a>
+            <a href="#" class="nav-link">Контакты</a>
+        </div>
+        <button class="md:hidden text-xl">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center">
+        <div class="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-16 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="gradient-text">Создаем цифровые</span><br>
+                    <span class="typewriter">впечатления</span>
+                </h1>
+                <p class="text-xl text-gray-400 mb-10">
+                    Мы превращаем ваши идеи в цифровые шедевры. От веб-дизайна до сложных приложений - мы создаем продукты, которые вдохновляют.
+                </p>
+                <div class="flex space-x-4">
+                    <button class="px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full font-semibold hover:opacity-90 transition">
+                        Начать проект
+                    </button>
+                    <button class="px-8 py-3 border border-indigo-500 rounded-full font-semibold hover:bg-indigo-500/10 transition">
+                        Узнать больше
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <div class="floating">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Digital creation" 
+                         class="rounded-2xl shadow-2xl border border-indigo-500/20">
+                </div>
+                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-pink-500 rounded-full opacity-20"></div>
+                <div class="absolute -top-10 -right-10 w-24 h-24 bg-indigo-500 rounded-full opacity-20"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Наши <span class="gradient-text">услуги</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-400">Мы предлагаем полный спектр цифровых решений для вашего бизнеса</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700/50 card-hover">
+                    <div class="w-16 h-16 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-2xl text-indigo-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Веб-разработка</h3>
+                    <p class="text-gray-400 mb-4">Создаем современные, быстрые и адаптивные веб-сайты с уникальным дизайном.</p>
+                    <a href="#" class="text-indigo-400 flex items-center">
+                        Узнать больше <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700/50 card-hover">
+                    <div class="w-16 h-16 bg-pink-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-2xl text-pink-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Мобильные приложения</h3>
+                    <p class="text-gray-400 mb-4">Разрабатываем кроссплатформенные мобильные приложения для iOS и Android.</p>
+                    <a href="#" class="text-pink-400 flex items-center">
+                        Узнать больше <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700/50 card-hover">
+                    <div class="w-16 h-16 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-brush text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">UI/UX Дизайн</h3>
+                    <p class="text-gray-400 mb-4">Создаем интуитивно понятные интерфейсы с продуманным пользовательским опытом.</p>
+                    <a href="#" class="text-purple-400 flex items-center">
+                        Узнать больше <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700/50 card-hover">
+                    <div class="w-16 h-16 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-2xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Цифровой маркетинг</h3>
+                    <p class="text-gray-400 mb-4">Помогаем привлекать клиентов через цифровые каналы с измеримыми результатами.</p>
+                    <a href="#" class="text-blue-400 flex items-center">
+                        Узнать больше <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700/50 card-hover">
+                    <div class="w-16 h-16 bg-green-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-search-dollar text-2xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">SEO Оптимизация</h3>
+                    <p class="text-gray-400 mb-4">Улучшаем видимость вашего сайта в поисковых системах и увеличиваем органический трафик.</p>
+                    <a href="#" class="text-green-400 flex items-center">
+                        Узнать больше <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-slate-800/50 p-8 rounded-xl border border-slate-700/50 card-hover">
+                    <div class="w-16 h-16 bg-yellow-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cloud text-2xl text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Облачные решения</h3>
+                    <p class="text-gray-400 mb-4">Предоставляем масштабируемые облачные решения для бизнеса любого размера.</p>
+                    <a href="#" class="text-yellow-400 flex items-center">
+                        Узнать больше <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section class="py-20 bg-slate-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Наши <span class="gradient-text">работы</span></h2>
+                <p class="max-w-2xl mx-auto text-gray-400">Посмотрите примеры наших последних проектов</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="group relative overflow-hidden rounded-xl card-hover">
+                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" 
+                         alt="Portfolio 1" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">E-commerce платформа</h3>
+                            <p class="text-gray-300">Полнофункциональная платформа для онлайн-продаж с аналитикой</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="group relative overflow-hidden rounded-xl card-hover">
+                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Portfolio 2" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">Мобильное приложение</h3>
+                            <p class="text-gray-300">Приложение для фитнес-трекинга с персонализированными тренировками</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="group relative overflow-hidden rounded-xl card-hover">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                         alt="Portfolio 3" 
+                         class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">Корпоративный сайт</h3>
+                            <p class="text-gray-300">Современный веб-сайт для международной IT-компании</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="px-8 py-3 border border-indigo-500 rounded-full font-semibold hover:bg-indigo-500/10 transition">
+                    Посмотреть все работы
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section
